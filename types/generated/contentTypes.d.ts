@@ -783,6 +783,109 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiActiveTokenInPortfolioActiveTokenInPortfolio
+  extends Schema.CollectionType {
+  collectionName: 'active_token_in_portfolios';
+  info: {
+    singularName: 'active-token-in-portfolio';
+    pluralName: 'active-token-in-portfolios';
+    displayName: 'ActiveTokenInPortfolio';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Tokens: Attribute.Component<'public-trading-wallet.token', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::active-token-in-portfolio.active-token-in-portfolio',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::active-token-in-portfolio.active-token-in-portfolio',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiCommentaryCommentary extends Schema.CollectionType {
+  collectionName: 'commentaries';
+  info: {
+    singularName: 'commentary';
+    pluralName: 'commentaries';
+    displayName: 'Commentary';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media;
+    CommentaryText: Attribute.Text;
+    labelOnRight: Attribute.String;
+    TimestampOfCommentary: Attribute.String;
+    DateOfCommentary: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::commentary.commentary',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::commentary.commentary',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPortfolioActiveTokenPortfolioActiveToken
+  extends Schema.CollectionType {
+  collectionName: 'portfolio_active_tokens';
+  info: {
+    singularName: 'portfolio-active-token';
+    pluralName: 'portfolio-active-tokens';
+    displayName: 'PortfolioActiveToken';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Ticker: Attribute.String;
+    Chain: Attribute.String;
+    TokenName: Attribute.String;
+    EntryPrice: Attribute.String;
+    WalletTokenIsIn: Attribute.String;
+    AmountOfTokens: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::portfolio-active-token.portfolio-active-token',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::portfolio-active-token.portfolio-active-token',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -801,6 +904,9 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::active-token-in-portfolio.active-token-in-portfolio': ApiActiveTokenInPortfolioActiveTokenInPortfolio;
+      'api::commentary.commentary': ApiCommentaryCommentary;
+      'api::portfolio-active-token.portfolio-active-token': ApiPortfolioActiveTokenPortfolioActiveToken;
     }
   }
 }

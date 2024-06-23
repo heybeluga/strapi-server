@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "active_token_in_portfolios",
+  "info": {
+    "singularName": "active-token-in-portfolio",
+    "pluralName": "active-token-in-portfolios",
+    "displayName": "ActiveTokenInPortfolio",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Tokens": {
+      "displayName": "Token",
+      "type": "component",
+      "repeatable": true,
+      "component": "public-trading-wallet.token"
+    }
+  }
+}

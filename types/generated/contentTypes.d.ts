@@ -815,6 +815,41 @@ export interface ApiActiveTokenInPortfolioActiveTokenInPortfolio
   };
 }
 
+export interface ApiArticleEntryArticleEntry extends Schema.CollectionType {
+  collectionName: 'article_entries';
+  info: {
+    singularName: 'article-entry';
+    pluralName: 'article-entries';
+    displayName: 'ArticleEntry';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ArticleSummary: Attribute.Component<'articles.summary-text'>;
+    ArticleTitle: Attribute.String;
+    titleImage: Attribute.Component<'general.image', true>;
+    articleAuthor: Attribute.String;
+    articleText: Attribute.Component<'articles.paragraph', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::article-entry.article-entry',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::article-entry.article-entry',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCommentaryCommentary extends Schema.CollectionType {
   collectionName: 'commentaries';
   info: {
@@ -850,42 +885,6 @@ export interface ApiCommentaryCommentary extends Schema.CollectionType {
   };
 }
 
-export interface ApiPortfolioActiveTokenPortfolioActiveToken
-  extends Schema.CollectionType {
-  collectionName: 'portfolio_active_tokens';
-  info: {
-    singularName: 'portfolio-active-token';
-    pluralName: 'portfolio-active-tokens';
-    displayName: 'PortfolioActiveToken';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    Ticker: Attribute.String;
-    Chain: Attribute.String;
-    TokenName: Attribute.String;
-    EntryPrice: Attribute.String;
-    WalletTokenIsIn: Attribute.String;
-    AmountOfTokens: Attribute.String;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::portfolio-active-token.portfolio-active-token',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::portfolio-active-token.portfolio-active-token',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -905,8 +904,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::active-token-in-portfolio.active-token-in-portfolio': ApiActiveTokenInPortfolioActiveTokenInPortfolio;
+      'api::article-entry.article-entry': ApiArticleEntryArticleEntry;
       'api::commentary.commentary': ApiCommentaryCommentary;
-      'api::portfolio-active-token.portfolio-active-token': ApiPortfolioActiveTokenPortfolioActiveToken;
     }
   }
 }

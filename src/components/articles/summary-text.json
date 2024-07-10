@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_articles_summary_texts",
+  "info": {
+    "displayName": "summary-text",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "summaryBullets": {
+      "displayName": "Bullet",
+      "type": "component",
+      "repeatable": true,
+      "component": "general.bullet"
+    }
+  }
+}

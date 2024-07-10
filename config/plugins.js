@@ -8,7 +8,7 @@ module.exports = ({ env }) => ({
             secretAccessKey: env('AWS_ACCESS_SECRET'),
             region: env('AWS_REGION'),
             params: {
-              Bucket: env('AWS_BUCKET_NAME'),
+              Bucket: 'xxx-strapi',
             },
           }
         },
@@ -20,6 +20,7 @@ module.exports = ({ env }) => ({
           uploadStream: {
             ACL: null
           },
+          delete: {}
         }
       },
     }

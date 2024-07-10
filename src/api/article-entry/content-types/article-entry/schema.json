@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "article_entries",
+  "info": {
+    "singularName": "article-entry",
+    "pluralName": "article-entries",
+    "displayName": "ArticleEntry",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ArticleSummary": {
+      "type": "component",
+      "repeatable": false,
+      "component": "articles.summary-text"
+    },
+    "ArticleTitle": {
+      "type": "string"
+    },
+    "titleImage": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.image"
+    },
+    "articleAuthor": {
+      "type": "string"
+    },
+    "articleText": {
+      "type": "component",
+      "repeatable": true,
+      "component": "articles.paragraph"
+    }
+  }
+}

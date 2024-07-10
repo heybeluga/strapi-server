@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_articles_paragraph_texts",
+  "info": {
+    "displayName": "paragraphText",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "TextTitle": {
+      "type": "blocks",
+      "required": true
+    },
+    "TextHeader": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

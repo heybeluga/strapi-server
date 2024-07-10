@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_articles_paragraph_s",
+  "info": {
+    "displayName": "paragraph ",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "paragraphText": {
+      "displayName": "paragraphText",
+      "type": "component",
+      "repeatable": true,
+      "component": "articles.paragraph-text"
+    }
+  }
+}

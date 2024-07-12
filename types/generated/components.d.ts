@@ -63,13 +63,14 @@ export interface PublicTradingWalletToken extends Schema.Component {
     description: '';
   };
   attributes: {
-    Ticker: Attribute.String;
+    TokenTicker: Attribute.String;
     Chain: Attribute.String;
-    Name: Attribute.String;
+    TokenName: Attribute.String;
     EntryPrice: Attribute.Decimal;
     WalletTokenIsIn: Attribute.String;
     AmountOfTokens: Attribute.Decimal;
-    CurrentPrice: Attribute.String;
+    ActiveTokenImage: Attribute.Media;
+    coinGeckCoinId: Attribute.String;
   };
 }
 

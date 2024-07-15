@@ -56,24 +56,6 @@ export interface GeneralImage extends Schema.Component {
   };
 }
 
-export interface PublicTradingWalletToken extends Schema.Component {
-  collectionName: 'components_public_trading_wallet_tokens';
-  info: {
-    displayName: 'Token';
-    description: '';
-  };
-  attributes: {
-    TokenTicker: Attribute.String;
-    Chain: Attribute.String;
-    TokenName: Attribute.String;
-    EntryPrice: Attribute.Decimal;
-    WalletTokenIsIn: Attribute.String;
-    AmountOfTokens: Attribute.Decimal;
-    ActiveTokenImage: Attribute.Media;
-    coinGeckCoinId: Attribute.String;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -82,7 +64,6 @@ declare module '@strapi/types' {
       'articles.summary-text': ArticlesSummaryText;
       'general.bullet': GeneralBullet;
       'general.image': GeneralImage;
-      'public-trading-wallet.token': PublicTradingWalletToken;
     }
   }
 }

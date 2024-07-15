@@ -12,11 +12,34 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Tokens": {
-      "displayName": "Token",
-      "type": "component",
-      "repeatable": true,
-      "component": "public-trading-wallet.token"
+    "TokenTicker": {
+      "type": "string"
+    },
+    "Chain": {
+      "type": "string"
+    },
+    "TokenName": {
+      "type": "string"
+    },
+    "EntryPrice": {
+      "type": "decimal"
+    },
+    "WalletTokenIsIn": {
+      "type": "string"
+    },
+    "AmountOfTokens": {
+      "type": "decimal"
+    },
+    "ActiveTokenImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "coinGeckCoinId": {
+      "type": "string"
     }
   }
 }

@@ -796,7 +796,14 @@ export interface ApiActiveTokenInPortfolioActiveTokenInPortfolio
     draftAndPublish: true;
   };
   attributes: {
-    Tokens: Attribute.Component<'public-trading-wallet.token', true>;
+    TokenTicker: Attribute.String;
+    Chain: Attribute.String;
+    TokenName: Attribute.String;
+    EntryPrice: Attribute.Decimal;
+    WalletTokenIsIn: Attribute.String;
+    AmountOfTokens: Attribute.Decimal;
+    ActiveTokenImage: Attribute.Media;
+    coinGeckCoinId: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

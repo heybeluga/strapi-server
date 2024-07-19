@@ -804,6 +804,7 @@ export interface ApiActiveTokenInPortfolioActiveTokenInPortfolio
     AmountOfTokens: Attribute.Decimal;
     ActiveTokenImage: Attribute.Media;
     coinGeckCoinId: Attribute.String;
+    tokenPieChartColor: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -40,6 +40,9 @@
     },
     "coinGeckCoinId": {
       "type": "string"
+    },
+    "tokenPieChartColor": {
+      "type": "string"
     }
   }
 }

@@ -840,6 +840,7 @@ export interface ApiArticleEntryArticleEntry extends Schema.CollectionType {
     titleImage: Attribute.Component<'general.image', true>;
     articleAuthor: Attribute.String;
     articleText: Attribute.Component<'articles.paragraph', true>;
+    articleSlug: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

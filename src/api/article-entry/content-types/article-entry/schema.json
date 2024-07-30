@@ -32,6 +32,9 @@
       "type": "component",
       "repeatable": true,
       "component": "articles.paragraph"
+    },
+    "articleSlug": {
+      "type": "string"
     }
   }
 }

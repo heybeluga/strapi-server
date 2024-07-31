@@ -841,6 +841,7 @@ export interface ApiArticleEntryArticleEntry extends Schema.CollectionType {
     articleAuthor: Attribute.String;
     articleText: Attribute.Component<'articles.paragraph', true>;
     articleSlug: Attribute.String;
+    migratedPublishedDate: Attribute.Date;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

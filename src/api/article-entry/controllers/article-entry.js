@@ -81,7 +81,8 @@ module.exports = createCoreController('api::article-entry.article-entry'
               },
             };
           }
-          return ctx.body = {data: draftArticle[0]};
+          const {id, ...articleData} = draftArticle[0];
+          return ctx.body = {data: {id, attributes: articleData}};
     }
 })
 );

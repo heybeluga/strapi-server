@@ -31,7 +31,7 @@ module.exports = createCoreController('api::article-entry.article-entry'
 
         
         if (draftArticles.length === 0) {
-            ctx.body = {
+            return ctx.body = {
               data: null,
               error: {
                 status: 404,
@@ -71,7 +71,7 @@ module.exports = createCoreController('api::article-entry.article-entry'
 
         
         if (draftArticle.length === 0) {
-            ctx.body = {
+            return ctx.body = {
               data: null,
               error: {
                 status: 404,

@@ -38,6 +38,20 @@
     },
     "migratedPublishedDate": {
       "type": "date"
+    },
+    "featuredArticle": {
+      "type": "boolean",
+      "default": false,
+      "required": false
+    },
+    "articleDescription": {
+      "type": "string",
+      "maxLength": 255
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
     }
   }
 }

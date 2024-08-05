@@ -842,6 +842,16 @@ export interface ApiArticleEntryArticleEntry extends Schema.CollectionType {
     articleText: Attribute.Component<'articles.paragraph', true>;
     articleSlug: Attribute.String;
     migratedPublishedDate: Attribute.Date;
+    featuredArticle: Attribute.Boolean & Attribute.DefaultTo<false>;
+    articleDescription: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 255;
+      }>;
+    tags: Attribute.Relation<
+      'api::article-entry.article-entry',
+      'oneToMany',
+      'api::tag.tag'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -895,6 +905,27 @@ export interface ApiCommentaryCommentary extends Schema.CollectionType {
   };
 }
 
+export interface ApiTagTag extends Schema.CollectionType {
+  collectionName: 'tags';
+  info: {
+    singularName: 'tag';
+    pluralName: 'tags';
+    displayName: 'Tag';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    tagValue: Attribute.String & Attribute.Required & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::tag.tag', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -916,6 +947,7 @@ declare module '@strapi/types' {
       'api::active-token-in-portfolio.active-token-in-portfolio': ApiActiveTokenInPortfolioActiveTokenInPortfolio;
       'api::article-entry.article-entry': ApiArticleEntryArticleEntry;
       'api::commentary.commentary': ApiCommentaryCommentary;
+      'api::tag.tag': ApiTagTag;
     }
   }
 }

@@ -22,7 +22,7 @@
                 'data:',
                 'blob:',
                 'dl.airtable.com',
-                'xxx-strapi.s3.amazonaws.com',
+                '*.amazonaws.com',
               ]
             },
           },

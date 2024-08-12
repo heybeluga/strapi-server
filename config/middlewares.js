@@ -16,6 +16,7 @@
                 'blob:',
                 'dl.airtable.com',
                 '*.amazonaws.com',
+                '*.media.strapiapp.com',
               ],
               'media-src': [
                 "'self'",
@@ -23,6 +24,7 @@
                 'blob:',
                 'dl.airtable.com',
                 '*.amazonaws.com',
+                '*.media.strapiapp.com',
               ]
             },
           },

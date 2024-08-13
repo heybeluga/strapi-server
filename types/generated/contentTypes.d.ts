@@ -919,7 +919,7 @@ export interface ApiEcosystemEcosystem extends Schema.CollectionType {
   attributes: {
     ecosystemLogo: Attribute.Media & Attribute.Required;
     ecosystemTitle: Attribute.String & Attribute.Required & Attribute.Unique;
-    ecosystemDescription: Attribute.String & Attribute.Required;
+    ecosystemDescription: Attribute.Text & Attribute.Required;
     ecosystemSlug: Attribute.String & Attribute.Required & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

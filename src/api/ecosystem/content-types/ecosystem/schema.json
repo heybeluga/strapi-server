@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ecosystems",
+  "info": {
+    "singularName": "ecosystem",
+    "pluralName": "ecosystems",
+    "displayName": "Ecosystem",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "ecosystemLogo": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "ecosystemTitle": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "ecosystemDescription": {
+      "type": "string",
+      "required": true,
+      "unique": false
+    },
+    "ecosystemSlug": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

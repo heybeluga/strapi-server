@@ -905,6 +905,40 @@ export interface ApiCommentaryCommentary extends Schema.CollectionType {
   };
 }
 
+export interface ApiEcosystemEcosystem extends Schema.CollectionType {
+  collectionName: 'ecosystems';
+  info: {
+    singularName: 'ecosystem';
+    pluralName: 'ecosystems';
+    displayName: 'Ecosystem';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    ecosystemLogo: Attribute.Media & Attribute.Required;
+    ecosystemTitle: Attribute.String & Attribute.Required & Attribute.Unique;
+    ecosystemDescription: Attribute.String & Attribute.Required;
+    ecosystemSlug: Attribute.String & Attribute.Required & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::ecosystem.ecosystem',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::ecosystem.ecosystem',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTagTag extends Schema.CollectionType {
   collectionName: 'tags';
   info: {
@@ -947,6 +981,7 @@ declare module '@strapi/types' {
       'api::active-token-in-portfolio.active-token-in-portfolio': ApiActiveTokenInPortfolioActiveTokenInPortfolio;
       'api::article-entry.article-entry': ApiArticleEntryArticleEntry;
       'api::commentary.commentary': ApiCommentaryCommentary;
+      'api::ecosystem.ecosystem': ApiEcosystemEcosystem;
       'api::tag.tag': ApiTagTag;
     }
   }

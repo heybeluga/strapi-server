@@ -114,6 +114,9 @@ module.exports = createCoreController('api::article-entry.article-entry'
                     },
                     titleImage: {
                         populate: ['imageHeader', 'image']
+                    },
+                    tags: {
+                        populate: ['tagValue']
                     }
                 }
             })

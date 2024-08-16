@@ -83,6 +83,45 @@ module.exports = createCoreController('api::article-entry.article-entry'
           }
           const {id, ...articleData} = draftArticle[0];
           return ctx.body = {data: {id, attributes: articleData}};
+    },
+    async findByTags(ctx){
+        try {
+            const { tags } = ctx.query;
+
+            if(!tags){
+                return ctx.throw(400, 'tags query parameter is required');
+            }
+           
+            const tagList = tags.toString().split(',');
+    
+            const articles = await strapi.entityService.findMany('api::article-entry.article-entry',{
+                filters:{
+                    publishedAt: {
+                        $ne:null
+                    },
+                    $and: tagList.map(tag => ({
+                        tags: {
+                            tagValue: tag
+                        }
+                    }))
+                },
+                populate: {
+                    ArticleSummary: {
+                        populate: ['summaryBullets']
+                    },
+                    articleText: {
+                        populate: ['paragraphText']
+                    },
+                    titleImage: {
+                        populate: ['imageHeader', 'image']
+                    }
+                }
+            })
+    
+            return this.transformResponse(articles);   
+        } catch (error) {
+            return ctx.throw(500)
+        }
     }
 })
 );

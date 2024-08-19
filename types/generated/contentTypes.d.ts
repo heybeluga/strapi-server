@@ -921,6 +921,7 @@ export interface ApiEcosystemEcosystem extends Schema.CollectionType {
     ecosystemTitle: Attribute.String & Attribute.Required & Attribute.Unique;
     ecosystemDescription: Attribute.Text & Attribute.Required;
     ecosystemSlug: Attribute.String & Attribute.Required & Attribute.Unique;
+    ecosystemCoinId: Attribute.String & Attribute.Required & Attribute.Unique;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

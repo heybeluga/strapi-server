@@ -34,6 +34,11 @@
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "ecosystemCoinId": {
+      "type": "string",
+      "required": true,
+      "unique": true
     }
   }
 }

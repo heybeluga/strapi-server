@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_page_entries",
+  "info": {
+    "singularName": "home-page-entry",
+    "pluralName": "home-page-entries",
+    "displayName": "HomePageEntry",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "featuredTopicArticle": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::article-entry.article-entry"
+    }
+  }
+}

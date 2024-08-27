@@ -940,6 +940,41 @@ export interface ApiEcosystemEcosystem extends Schema.CollectionType {
   };
 }
 
+export interface ApiHomePageEntryHomePageEntry extends Schema.SingleType {
+  collectionName: 'home_page_entries';
+  info: {
+    singularName: 'home-page-entry';
+    pluralName: 'home-page-entries';
+    displayName: 'HomePageEntry';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    featuredTopicArticle: Attribute.Relation<
+      'api::home-page-entry.home-page-entry',
+      'oneToOne',
+      'api::article-entry.article-entry'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::home-page-entry.home-page-entry',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::home-page-entry.home-page-entry',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTagTag extends Schema.CollectionType {
   collectionName: 'tags';
   info: {
@@ -983,6 +1018,7 @@ declare module '@strapi/types' {
       'api::article-entry.article-entry': ApiArticleEntryArticleEntry;
       'api::commentary.commentary': ApiCommentaryCommentary;
       'api::ecosystem.ecosystem': ApiEcosystemEcosystem;
+      'api::home-page-entry.home-page-entry': ApiHomePageEntryHomePageEntry;
       'api::tag.tag': ApiTagTag;
     }
   }

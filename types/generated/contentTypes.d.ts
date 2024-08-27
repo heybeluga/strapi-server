@@ -957,6 +957,7 @@ export interface ApiHomePageEntryHomePageEntry extends Schema.SingleType {
       'oneToOne',
       'api::article-entry.article-entry'
     >;
+    announcements: Attribute.Component<'announcement.announcement', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

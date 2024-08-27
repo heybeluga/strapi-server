@@ -16,6 +16,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::article-entry.article-entry"
+    },
+    "announcements": {
+      "type": "component",
+      "repeatable": true,
+      "component": "announcement.announcement"
     }
   }
 }

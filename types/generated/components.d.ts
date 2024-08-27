@@ -1,5 +1,19 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
+export interface AnnouncementAnnouncement extends Schema.Component {
+  collectionName: 'components_announcement_announcements';
+  info: {
+    displayName: 'Announcement';
+  };
+  attributes: {
+    thumbnail: Attribute.Media;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.String & Attribute.Required;
+    callToActionTitle: Attribute.String & Attribute.Required;
+    callToActionLink: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface ArticlesParagraphText extends Schema.Component {
   collectionName: 'components_articles_paragraph_texts';
   info: {
@@ -59,6 +73,7 @@ export interface GeneralImage extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'announcement.announcement': AnnouncementAnnouncement;
       'articles.paragraph-text': ArticlesParagraphText;
       'articles.paragraph': ArticlesParagraph;
       'articles.summary-text': ArticlesSummaryText;

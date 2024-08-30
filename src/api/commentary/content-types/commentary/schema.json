@@ -29,11 +29,8 @@
     "labelOnRight": {
       "type": "string"
     },
-    "TimestampOfCommentary": {
-      "type": "string"
-    },
-    "DateOfCommentary": {
-      "type": "string"
+    "optionalCommentaryDate": {
+      "type": "datetime"
     }
   }
 }

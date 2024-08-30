@@ -885,8 +885,7 @@ export interface ApiCommentaryCommentary extends Schema.CollectionType {
     image: Attribute.Media;
     CommentaryText: Attribute.Text;
     labelOnRight: Attribute.String;
-    TimestampOfCommentary: Attribute.String;
-    DateOfCommentary: Attribute.String;
+    optionalCommentaryDate: Attribute.DateTime;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

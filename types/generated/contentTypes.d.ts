@@ -921,6 +921,9 @@ export interface ApiEcosystemEcosystem extends Schema.CollectionType {
     ecosystemDescription: Attribute.Text & Attribute.Required;
     ecosystemSlug: Attribute.String & Attribute.Required & Attribute.Unique;
     ecosystemCoinId: Attribute.String & Attribute.Required & Attribute.Unique;
+    homepageDescription: Attribute.String;
+    activeToken: Attribute.Boolean & Attribute.DefaultTo<false>;
+    featuredEcosystem: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -957,6 +960,11 @@ export interface ApiHomePageEntryHomePageEntry extends Schema.SingleType {
       'api::article-entry.article-entry'
     >;
     announcements: Attribute.Component<'announcement.announcement', true>;
+    upcomingTokens: Attribute.Relation<
+      'api::home-page-entry.home-page-entry',
+      'oneToMany',
+      'api::ecosystem.ecosystem'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

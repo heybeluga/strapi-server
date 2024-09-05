@@ -39,6 +39,17 @@
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "homepageDescription": {
+      "type": "string"
+    },
+    "activeToken": {
+      "type": "boolean",
+      "default": false
+    },
+    "featuredEcosystem": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

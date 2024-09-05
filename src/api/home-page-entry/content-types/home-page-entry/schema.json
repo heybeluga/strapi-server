@@ -21,6 +21,11 @@
       "type": "component",
       "repeatable": true,
       "component": "announcement.announcement"
+    },
+    "upcomingTokens": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ecosystem.ecosystem"
     }
   }
 }

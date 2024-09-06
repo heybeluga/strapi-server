@@ -50,6 +50,24 @@
     "featuredEcosystem": {
       "type": "boolean",
       "default": false
+    },
+    "ecosystem_dapps": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ecosystem-dapp.ecosystem-dapp",
+      "mappedBy": "ecosystem"
+    },
+    "ecosystem_socials": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ecosystem-social.ecosystem-social",
+      "mappedBy": "ecosystem"
+    },
+    "ecosystem_top_accounts": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ecosystem-top-account.ecosystem-top-account",
+      "mappedBy": "ecosystem"
     }
   }
 }

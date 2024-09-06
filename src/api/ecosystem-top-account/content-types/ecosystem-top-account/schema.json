@@ -1,0 +1,42 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ecosystem_top_accounts",
+  "info": {
+    "singularName": "ecosystem-top-account",
+    "pluralName": "ecosystem-top-accounts",
+    "displayName": "EcosystemTopAccounts",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "profilePicture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "description": {
+      "type": "text"
+    },
+    "socialAccountLink": {
+      "type": "string"
+    },
+    "ecosystem": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::ecosystem.ecosystem",
+      "inversedBy": "ecosystem_top_accounts"
+    }
+  }
+}

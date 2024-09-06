@@ -4,7 +4,8 @@
   "info": {
     "singularName": "ecosystem-social",
     "pluralName": "ecosystem-socials",
-    "displayName": "EcosystemSocials"
+    "displayName": "EcosystemSocials",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,22 +19,24 @@
       "type": "text"
     },
     "displayMedia": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
-    },
-    "ecosystem": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::ecosystem.ecosystem"
+      ]
     },
     "ecosystemSocialLink": {
       "type": "string"
+    },
+    "ecosystem": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::ecosystem.ecosystem",
+      "inversedBy": "ecosystem_socials"
     }
   }
 }

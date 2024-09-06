@@ -924,6 +924,21 @@ export interface ApiEcosystemEcosystem extends Schema.CollectionType {
     homepageDescription: Attribute.String;
     activeToken: Attribute.Boolean & Attribute.DefaultTo<false>;
     featuredEcosystem: Attribute.Boolean & Attribute.DefaultTo<false>;
+    ecosystem_dapps: Attribute.Relation<
+      'api::ecosystem.ecosystem',
+      'oneToMany',
+      'api::ecosystem-dapp.ecosystem-dapp'
+    >;
+    ecosystem_socials: Attribute.Relation<
+      'api::ecosystem.ecosystem',
+      'oneToMany',
+      'api::ecosystem-social.ecosystem-social'
+    >;
+    ecosystem_top_accounts: Attribute.Relation<
+      'api::ecosystem.ecosystem',
+      'oneToMany',
+      'api::ecosystem-top-account.ecosystem-top-account'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -948,6 +963,7 @@ export interface ApiEcosystemDappEcosystemDapp extends Schema.CollectionType {
     singularName: 'ecosystem-dapp';
     pluralName: 'ecosystem-dapps';
     displayName: 'EcosystemDapps';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -956,12 +972,12 @@ export interface ApiEcosystemDappEcosystemDapp extends Schema.CollectionType {
     dappName: Attribute.String;
     dappDescription: Attribute.Text;
     dappDisplayImage: Attribute.Media;
+    dappPageLink: Attribute.String;
     ecosystem: Attribute.Relation<
       'api::ecosystem-dapp.ecosystem-dapp',
-      'oneToOne',
+      'manyToOne',
       'api::ecosystem.ecosystem'
     >;
-    dappPageLink: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -987,6 +1003,7 @@ export interface ApiEcosystemSocialEcosystemSocial
     singularName: 'ecosystem-social';
     pluralName: 'ecosystem-socials';
     displayName: 'EcosystemSocials';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -995,12 +1012,12 @@ export interface ApiEcosystemSocialEcosystemSocial
     name: Attribute.String;
     description: Attribute.Text;
     displayMedia: Attribute.Media;
+    ecosystemSocialLink: Attribute.String;
     ecosystem: Attribute.Relation<
       'api::ecosystem-social.ecosystem-social',
-      'oneToOne',
+      'manyToOne',
       'api::ecosystem.ecosystem'
     >;
-    ecosystemSocialLink: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1026,6 +1043,7 @@ export interface ApiEcosystemTopAccountEcosystemTopAccount
     singularName: 'ecosystem-top-account';
     pluralName: 'ecosystem-top-accounts';
     displayName: 'EcosystemTopAccounts';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1037,7 +1055,7 @@ export interface ApiEcosystemTopAccountEcosystemTopAccount
     socialAccountLink: Attribute.String;
     ecosystem: Attribute.Relation<
       'api::ecosystem-top-account.ecosystem-top-account',
-      'oneToOne',
+      'manyToOne',
       'api::ecosystem.ecosystem'
     >;
     createdAt: Attribute.DateTime;

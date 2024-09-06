@@ -4,7 +4,8 @@
   "info": {
     "singularName": "ecosystem-dapp",
     "pluralName": "ecosystem-dapps",
-    "displayName": "EcosystemDapps"
+    "displayName": "EcosystemDapps",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -18,22 +19,24 @@
       "type": "text"
     },
     "dappDisplayImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
-    },
-    "ecosystem": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::ecosystem.ecosystem"
+      ]
     },
     "dappPageLink": {
       "type": "string"
+    },
+    "ecosystem": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::ecosystem.ecosystem",
+      "inversedBy": "ecosystem_dapps"
     }
   }
 }

@@ -70,6 +70,21 @@ export interface GeneralImage extends Schema.Component {
   };
 }
 
+export interface UpcomingTokenUpcomingToken extends Schema.Component {
+  collectionName: 'components_upcoming_token_upcoming_tokens';
+  info: {
+    displayName: 'UpcomingToken';
+  };
+  attributes: {
+    logo: Attribute.Media & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    slug: Attribute.String & Attribute.Required;
+    activeToken: Attribute.Boolean & Attribute.DefaultTo<false>;
+    featuredToken: Attribute.Boolean & Attribute.DefaultTo<false>;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -79,6 +94,7 @@ declare module '@strapi/types' {
       'articles.summary-text': ArticlesSummaryText;
       'general.bullet': GeneralBullet;
       'general.image': GeneralImage;
+      'upcoming-token.upcoming-token': UpcomingTokenUpcomingToken;
     }
   }
 }

@@ -1094,11 +1094,7 @@ export interface ApiHomePageEntryHomePageEntry extends Schema.SingleType {
       'api::article-entry.article-entry'
     >;
     announcements: Attribute.Component<'announcement.announcement', true>;
-    upcomingTokens: Attribute.Relation<
-      'api::home-page-entry.home-page-entry',
-      'oneToMany',
-      'api::ecosystem.ecosystem'
-    >;
+    upcomingTokens: Attribute.Component<'upcoming-token.upcoming-token', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

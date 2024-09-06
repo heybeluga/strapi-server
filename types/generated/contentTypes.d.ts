@@ -942,6 +942,122 @@ export interface ApiEcosystemEcosystem extends Schema.CollectionType {
   };
 }
 
+export interface ApiEcosystemDappEcosystemDapp extends Schema.CollectionType {
+  collectionName: 'ecosystem_dapps';
+  info: {
+    singularName: 'ecosystem-dapp';
+    pluralName: 'ecosystem-dapps';
+    displayName: 'EcosystemDapps';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    dappName: Attribute.String;
+    dappDescription: Attribute.Text;
+    dappDisplayImage: Attribute.Media;
+    ecosystem: Attribute.Relation<
+      'api::ecosystem-dapp.ecosystem-dapp',
+      'oneToOne',
+      'api::ecosystem.ecosystem'
+    >;
+    dappPageLink: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::ecosystem-dapp.ecosystem-dapp',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::ecosystem-dapp.ecosystem-dapp',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEcosystemSocialEcosystemSocial
+  extends Schema.CollectionType {
+  collectionName: 'ecosystem_socials';
+  info: {
+    singularName: 'ecosystem-social';
+    pluralName: 'ecosystem-socials';
+    displayName: 'EcosystemSocials';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    description: Attribute.Text;
+    displayMedia: Attribute.Media;
+    ecosystem: Attribute.Relation<
+      'api::ecosystem-social.ecosystem-social',
+      'oneToOne',
+      'api::ecosystem.ecosystem'
+    >;
+    ecosystemSocialLink: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::ecosystem-social.ecosystem-social',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::ecosystem-social.ecosystem-social',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEcosystemTopAccountEcosystemTopAccount
+  extends Schema.CollectionType {
+  collectionName: 'ecosystem_top_accounts';
+  info: {
+    singularName: 'ecosystem-top-account';
+    pluralName: 'ecosystem-top-accounts';
+    displayName: 'EcosystemTopAccounts';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    name: Attribute.String;
+    profilePicture: Attribute.Media;
+    description: Attribute.Text;
+    socialAccountLink: Attribute.String;
+    ecosystem: Attribute.Relation<
+      'api::ecosystem-top-account.ecosystem-top-account',
+      'oneToOne',
+      'api::ecosystem.ecosystem'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::ecosystem-top-account.ecosystem-top-account',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::ecosystem-top-account.ecosystem-top-account',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiHomePageEntryHomePageEntry extends Schema.SingleType {
   collectionName: 'home_page_entries';
   info: {
@@ -1026,6 +1142,9 @@ declare module '@strapi/types' {
       'api::article-entry.article-entry': ApiArticleEntryArticleEntry;
       'api::commentary.commentary': ApiCommentaryCommentary;
       'api::ecosystem.ecosystem': ApiEcosystemEcosystem;
+      'api::ecosystem-dapp.ecosystem-dapp': ApiEcosystemDappEcosystemDapp;
+      'api::ecosystem-social.ecosystem-social': ApiEcosystemSocialEcosystemSocial;
+      'api::ecosystem-top-account.ecosystem-top-account': ApiEcosystemTopAccountEcosystemTopAccount;
       'api::home-page-entry.home-page-entry': ApiHomePageEntryHomePageEntry;
       'api::tag.tag': ApiTagTag;
     }

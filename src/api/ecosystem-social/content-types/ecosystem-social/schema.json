@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ecosystem_socials",
+  "info": {
+    "singularName": "ecosystem-social",
+    "pluralName": "ecosystem-socials",
+    "displayName": "EcosystemSocials"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "displayMedia": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "ecosystem": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::ecosystem.ecosystem"
+    },
+    "ecosystemSocialLink": {
+      "type": "string"
+    }
+  }
+}

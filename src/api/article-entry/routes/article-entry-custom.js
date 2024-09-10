@@ -15,6 +15,11 @@ module.exports = {
             method: 'GET',
             "path": "/article-entries/find-by-tags",
             "handler": "article-entry.findByTags",
+        },
+        {
+            method: 'GET',
+            "path": "/article-entries/featured",
+            "handler": "article-entry.findFeatured",
         }
     ]
 }

@@ -125,6 +125,38 @@ module.exports = createCoreController('api::article-entry.article-entry'
         } catch (error) {
             return ctx.throw(500)
         }
+    },
+    async findFeatured(ctx){
+        try {
+            const articles = await strapi.entityService.findMany('api::article-entry.article-entry',{
+                filters:{
+                    publishedAt: {
+                        $ne:null
+                    },
+                    featuredArticle: {
+                        $eq:true
+                    }
+                },
+                populate: {
+                    ArticleSummary: {
+                        populate: ['summaryBullets']
+                    },
+                    articleText: {
+                        populate: ['paragraphText']
+                    },
+                    titleImage: {
+                        populate: ['imageHeader', 'image']
+                    },
+                    tags: {
+                        populate: ['tagValue']
+                    }
+                }
+            })
+    
+            return this.transformResponse(articles);
+        } catch (error) {
+            return ctx.throw(500)
+        }
     }
 })
 );

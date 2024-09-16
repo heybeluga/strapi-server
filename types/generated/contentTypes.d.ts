@@ -920,7 +920,7 @@ export interface ApiEcosystemEcosystem extends Schema.CollectionType {
     ecosystemTitle: Attribute.String & Attribute.Required & Attribute.Unique;
     ecosystemDescription: Attribute.Text & Attribute.Required;
     ecosystemSlug: Attribute.String & Attribute.Required & Attribute.Unique;
-    ecosystemCoinId: Attribute.String & Attribute.Required & Attribute.Unique;
+    ecosystemCoinId: Attribute.String & Attribute.Required;
     homepageDescription: Attribute.String;
     activeToken: Attribute.Boolean & Attribute.DefaultTo<false>;
     featuredEcosystem: Attribute.Boolean & Attribute.DefaultTo<false>;

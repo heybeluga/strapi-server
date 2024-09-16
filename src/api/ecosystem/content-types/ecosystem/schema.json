@@ -38,7 +38,7 @@
     "ecosystemCoinId": {
       "type": "string",
       "required": true,
-      "unique": true
+      "unique": false
     },
     "homepageDescription": {
       "type": "string"

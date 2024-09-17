@@ -1134,6 +1134,36 @@ export interface ApiTagTag extends Schema.CollectionType {
   };
 }
 
+export interface ApiUpcomingTokenUpcomingToken extends Schema.CollectionType {
+  collectionName: 'upcoming_tokens';
+  info: {
+    singularName: 'upcoming-token';
+    pluralName: 'upcoming-tokens';
+    displayName: 'UpcomingToken';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    token: Attribute.Component<'upcoming-token.upcoming-token'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::upcoming-token.upcoming-token',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::upcoming-token.upcoming-token',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1161,6 +1191,7 @@ declare module '@strapi/types' {
       'api::ecosystem-top-account.ecosystem-top-account': ApiEcosystemTopAccountEcosystemTopAccount;
       'api::home-page-entry.home-page-entry': ApiHomePageEntryHomePageEntry;
       'api::tag.tag': ApiTagTag;
+      'api::upcoming-token.upcoming-token': ApiUpcomingTokenUpcomingToken;
     }
   }
 }

@@ -4,7 +4,8 @@
   "info": {
     "singularName": "upcoming-token",
     "pluralName": "upcoming-tokens",
-    "displayName": "UpcomingToken"
+    "displayName": "UpcomingToken",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true

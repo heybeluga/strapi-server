@@ -74,6 +74,7 @@ export interface UpcomingTokenUpcomingToken extends Schema.Component {
   collectionName: 'components_upcoming_token_upcoming_tokens';
   info: {
     displayName: 'UpcomingToken';
+    description: '';
   };
   attributes: {
     logo: Attribute.Media & Attribute.Required;
@@ -82,6 +83,14 @@ export interface UpcomingTokenUpcomingToken extends Schema.Component {
     slug: Attribute.String & Attribute.Required;
     activeToken: Attribute.Boolean & Attribute.DefaultTo<false>;
     featuredToken: Attribute.Boolean & Attribute.DefaultTo<false>;
+    score: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+        },
+        number
+      > &
+      Attribute.DefaultTo<0>;
   };
 }
 

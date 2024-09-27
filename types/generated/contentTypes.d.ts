@@ -1140,6 +1140,7 @@ export interface ApiUpcomingTokenUpcomingToken extends Schema.CollectionType {
     singularName: 'upcoming-token';
     pluralName: 'upcoming-tokens';
     displayName: 'UpcomingToken';
+    description: '';
   };
   options: {
     draftAndPublish: true;

@@ -1,17 +1,18 @@
 {
   "collectionName": "components_upcoming_token_upcoming_tokens",
   "info": {
-    "displayName": "UpcomingToken"
+    "displayName": "UpcomingToken",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "logo": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
     },
     "title": {
       "type": "string",
@@ -32,6 +33,11 @@
     "featuredToken": {
       "type": "boolean",
       "default": false
+    },
+    "score": {
+      "type": "integer",
+      "default": 0,
+      "min": 0
     }
   }
 }

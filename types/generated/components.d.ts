@@ -82,7 +82,6 @@ export interface UpcomingTokenUpcomingToken extends Schema.Component {
     description: Attribute.Text & Attribute.Required;
     slug: Attribute.String & Attribute.Required;
     activeToken: Attribute.Boolean & Attribute.DefaultTo<false>;
-    featuredToken: Attribute.Boolean & Attribute.DefaultTo<false>;
     score: Attribute.Integer &
       Attribute.SetMinMax<
         {
@@ -91,6 +90,7 @@ export interface UpcomingTokenUpcomingToken extends Schema.Component {
         number
       > &
       Attribute.DefaultTo<0>;
+    tokenLabel: Attribute.String;
   };
 }
 

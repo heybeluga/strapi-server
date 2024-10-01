@@ -30,14 +30,13 @@
       "type": "boolean",
       "default": false
     },
-    "featuredToken": {
-      "type": "boolean",
-      "default": false
-    },
     "score": {
       "type": "integer",
       "default": 0,
       "min": 0
+    },
+    "tokenLabel": {
+      "type": "string"
     }
   }
 }

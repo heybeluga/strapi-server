@@ -1,14 +1,30 @@
+async function triggerDeploy(result) {
+  const webhooks = await strapi.webhookStore.findWebhooks();
+  const vercelWebhook = webhooks.find(
+    (webhook) => webhook.name === "vercel webhook"
+  );
+
+  if (vercelWebhook) {
+    // trigger deploy webhook
+    return await strapi.webhookRunner.run(vercelWebhook, "deploy", result);
+  }
+}
+
 module.exports = {
-  // trigger deploy webhook after updating upcoming token entry
-  async afterUpdate(event) {
+  async beforeUpdate(event) {
     const { result, params } = event;
 
-    // check if upcoming token has been published
+    // if the upcoming token entry toggle publishedAt then trigger deploy webhook
+    if ('publishedAt' in params.data) {
+      return triggerDeploy(result);
+    }
+
+    // check if edited token is published
     const entry = await strapi.entityService.findMany(
       "api::upcoming-token.upcoming-token",
       {
         filters: {
-          id: result.id,
+          id: params.data.id,
           publishedAt: {
             $ne: null,
           },
@@ -16,14 +32,8 @@ module.exports = {
       }
     );
 
-    const webhooks = await strapi.webhookStore.findWebhooks();
-    const vercelWebhook = webhooks.find(
-      (webhook) => webhook.name === "vercel webhook"
-    );
-
-    if (vercelWebhook && entry.length > 0) {
-      // trigger deploy webhook
-      return await strapi.webhookRunner.run(vercelWebhook, "deploy", result);
+    if (entry.length > 0) {
+      triggerDeploy(result);
     }
   },
 
@@ -42,14 +52,8 @@ module.exports = {
       }
     );
 
-    const webhooks = await strapi.webhookStore.findWebhooks();
-    const vercelWebhook = webhooks.find(
-      (webhook) => webhook.name === "vercel webhook"
-    );
-
-    if (vercelWebhook && entry.length > 0) {
-      // trigger deploy webhook
-      return await strapi.webhookRunner.run(vercelWebhook, "deploy", result);
+    if (entry.length > 0) {
+      triggerDeploy(result);
     }
   },
 };

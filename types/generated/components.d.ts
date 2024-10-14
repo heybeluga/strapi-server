@@ -70,6 +70,18 @@ export interface GeneralImage extends Schema.Component {
   };
 }
 
+export interface LinkSocialMediaLink extends Schema.Component {
+  collectionName: 'components_social_media_link_social_media_links';
+  info: {
+    displayName: 'Link';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String;
+    link: Attribute.String;
+  };
+}
+
 export interface UpcomingTokenUpcomingToken extends Schema.Component {
   collectionName: 'components_upcoming_token_upcoming_tokens';
   info: {
@@ -103,6 +115,7 @@ declare module '@strapi/types' {
       'articles.summary-text': ArticlesSummaryText;
       'general.bullet': GeneralBullet;
       'general.image': GeneralImage;
+      'link.social-media-link': LinkSocialMediaLink;
       'upcoming-token.upcoming-token': UpcomingTokenUpcomingToken;
     }
   }

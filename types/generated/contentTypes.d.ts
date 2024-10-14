@@ -1113,6 +1113,49 @@ export interface ApiHomePageEntryHomePageEntry extends Schema.SingleType {
   };
 }
 
+export interface ApiSilverTokenSilverToken extends Schema.CollectionType {
+  collectionName: 'silver_tokens';
+  info: {
+    singularName: 'silver-token';
+    pluralName: 'silver-tokens';
+    displayName: 'SilverToken';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    logo: Attribute.Media & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    description: Attribute.Text & Attribute.Required;
+    link: Attribute.String;
+    socialMediaLinks: Attribute.Component<'link.social-media-link', true>;
+    position: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 12;
+        },
+        number
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::silver-token.silver-token',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::silver-token.silver-token',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTagTag extends Schema.CollectionType {
   collectionName: 'tags';
   info: {
@@ -1191,6 +1234,7 @@ declare module '@strapi/types' {
       'api::ecosystem-social.ecosystem-social': ApiEcosystemSocialEcosystemSocial;
       'api::ecosystem-top-account.ecosystem-top-account': ApiEcosystemTopAccountEcosystemTopAccount;
       'api::home-page-entry.home-page-entry': ApiHomePageEntryHomePageEntry;
+      'api::silver-token.silver-token': ApiSilverTokenSilverToken;
       'api::tag.tag': ApiTagTag;
       'api::upcoming-token.upcoming-token': ApiUpcomingTokenUpcomingToken;
     }

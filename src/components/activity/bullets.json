@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_activity_bullets",
+  "info": {
+    "displayName": "bullets"
+  },
+  "options": {},
+  "attributes": {
+    "bullet": {
+      "type": "string"
+    }
+  }
+}

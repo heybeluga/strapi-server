@@ -42,6 +42,13 @@
       "relation": "manyToOne",
       "target": "api::ecosystem.ecosystem",
       "inversedBy": "ecosystem_activities"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "ecosystem-page",
+        "starter-pack"
+      ]
     }
   }
 }

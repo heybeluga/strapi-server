@@ -994,6 +994,7 @@ export interface ApiEcosystemActivityEcosystemActivity
       'manyToOne',
       'api::ecosystem.ecosystem'
     >;
+    type: Attribute.Enumeration<['ecosystem-page', 'starter-pack']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

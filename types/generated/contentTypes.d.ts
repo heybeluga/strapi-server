@@ -835,7 +835,6 @@ export interface ApiArticleEntryArticleEntry extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    ArticleSummary: Attribute.Component<'articles.summary-text'>;
     ArticleTitle: Attribute.String;
     titleImage: Attribute.Component<'general.image', true>;
     articleAuthor: Attribute.String;
@@ -852,6 +851,7 @@ export interface ApiArticleEntryArticleEntry extends Schema.CollectionType {
       'oneToMany',
       'api::tag.tag'
     >;
+    ArticleSummary: Attribute.Component<'general.bullet', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

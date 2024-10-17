@@ -12,11 +12,6 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "ArticleSummary": {
-      "type": "component",
-      "repeatable": false,
-      "component": "articles.summary-text"
-    },
     "ArticleTitle": {
       "type": "string"
     },
@@ -52,6 +47,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::tag.tag"
+    },
+    "ArticleSummary": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.bullet"
     }
   }
 }

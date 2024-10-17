@@ -68,48 +68,6 @@
       "relation": "oneToMany",
       "target": "api::ecosystem-top-account.ecosystem-top-account",
       "mappedBy": "ecosystem"
-    },
-    "contentDescription": {
-      "type": "text",
-      "required": true
-    },
-    "dappsDescription": {
-      "type": "text",
-      "required": true
-    },
-    "activitiesDescription": {
-      "type": "text",
-      "required": true
-    },
-    "subBrandsDescription": {
-      "type": "text",
-      "required": true
-    },
-    "recDescription": {
-      "type": "text",
-      "required": true
-    },
-    "ecosystem_activities": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::ecosystem-activity.ecosystem-activity",
-      "mappedBy": "ecosystem"
-    },
-    "twitterUrl": {
-      "type": "string",
-      "required": true
-    },
-    "telegramUrl": {
-      "type": "string",
-      "required": true
-    },
-    "discordUrl": {
-      "type": "string",
-      "required": true
-    },
-    "marketCapUrl": {
-      "type": "string",
-      "required": true
     }
   }
 }

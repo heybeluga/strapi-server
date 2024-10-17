@@ -21,11 +21,11 @@ module.exports = createCoreController('api::ecosystem-social.ecosystem-social'
                     }
                 },
                 populate: {
-                    logo: true
+                    displayMedia: true
                 }
             })
-
-
+    
+            
             if (ecosystemEntry.length === 0) {
                 return ctx.throw(404)
               }

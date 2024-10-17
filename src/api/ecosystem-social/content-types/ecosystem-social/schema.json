@@ -15,35 +15,28 @@
     "name": {
       "type": "string"
     },
-    "logo": {
+    "description": {
+      "type": "text"
+    },
+    "displayMedia": {
       "type": "media",
       "multiple": false,
-      "required": true,
+      "required": false,
       "allowedTypes": [
-        "images"
+        "images",
+        "files",
+        "videos",
+        "audios"
       ]
     },
-    "websiteUrl": {
-      "type": "string",
-      "required": true
+    "ecosystemSocialLink": {
+      "type": "string"
     },
     "ecosystem": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::ecosystem.ecosystem",
       "inversedBy": "ecosystem_socials"
-    },
-    "twitterUrl": {
-      "type": "string",
-      "required": true
-    },
-    "telegramUrl": {
-      "type": "string",
-      "required": true
-    },
-    "discordUrl": {
-      "type": "string",
-      "required": true
     }
   }
 }

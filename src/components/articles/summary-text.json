@@ -5,5 +5,12 @@
     "description": ""
   },
   "options": {},
-  "attributes": {}
+  "attributes": {
+    "summaryBullets": {
+      "displayName": "Bullet",
+      "type": "component",
+      "repeatable": true,
+      "component": "general.bullet"
+    }
+  }
 }

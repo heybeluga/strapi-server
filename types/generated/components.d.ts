@@ -1,15 +1,5 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface ActivityBullets extends Schema.Component {
-  collectionName: 'components_activity_bullets';
-  info: {
-    displayName: 'bullets';
-  };
-  attributes: {
-    bullet: Attribute.String;
-  };
-}
-
 export interface AnnouncementAnnouncement extends Schema.Component {
   collectionName: 'components_announcement_announcements';
   info: {
@@ -53,7 +43,9 @@ export interface ArticlesSummaryText extends Schema.Component {
     displayName: 'summary-text';
     description: '';
   };
-  attributes: {};
+  attributes: {
+    summaryBullets: Attribute.Component<'general.bullet', true>;
+  };
 }
 
 export interface GeneralBullet extends Schema.Component {
@@ -117,7 +109,6 @@ export interface UpcomingTokenUpcomingToken extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
-      'activity.bullets': ActivityBullets;
       'announcement.announcement': AnnouncementAnnouncement;
       'articles.paragraph-text': ArticlesParagraphText;
       'articles.paragraph': ArticlesParagraph;

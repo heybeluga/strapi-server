@@ -939,20 +939,6 @@ export interface ApiEcosystemEcosystem extends Schema.CollectionType {
       'oneToMany',
       'api::ecosystem-top-account.ecosystem-top-account'
     >;
-    contentDescription: Attribute.Text & Attribute.Required;
-    dappsDescription: Attribute.Text & Attribute.Required;
-    activitiesDescription: Attribute.Text & Attribute.Required;
-    subBrandsDescription: Attribute.Text & Attribute.Required;
-    recDescription: Attribute.Text & Attribute.Required;
-    ecosystem_activities: Attribute.Relation<
-      'api::ecosystem.ecosystem',
-      'oneToMany',
-      'api::ecosystem-activity.ecosystem-activity'
-    >;
-    twitterUrl: Attribute.String & Attribute.Required;
-    telegramUrl: Attribute.String & Attribute.Required;
-    discordUrl: Attribute.String & Attribute.Required;
-    marketCapUrl: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -964,47 +950,6 @@ export interface ApiEcosystemEcosystem extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::ecosystem.ecosystem',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiEcosystemActivityEcosystemActivity
-  extends Schema.CollectionType {
-  collectionName: 'ecosystem_activities';
-  info: {
-    singularName: 'ecosystem-activity';
-    pluralName: 'ecosystem-activities';
-    displayName: 'EcosystemActivity';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String & Attribute.Required;
-    logo: Attribute.Media & Attribute.Required;
-    description: Attribute.Text;
-    bullets: Attribute.Component<'activity.bullets', true>;
-    open: Attribute.Boolean & Attribute.DefaultTo<false>;
-    ecosystem: Attribute.Relation<
-      'api::ecosystem-activity.ecosystem-activity',
-      'manyToOne',
-      'api::ecosystem.ecosystem'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::ecosystem-activity.ecosystem-activity',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::ecosystem-activity.ecosystem-activity',
       'oneToOne',
       'admin::user'
     > &
@@ -1065,16 +1010,14 @@ export interface ApiEcosystemSocialEcosystemSocial
   };
   attributes: {
     name: Attribute.String;
-    logo: Attribute.Media & Attribute.Required;
-    websiteUrl: Attribute.String & Attribute.Required;
+    description: Attribute.Text;
+    displayMedia: Attribute.Media;
+    ecosystemSocialLink: Attribute.String;
     ecosystem: Attribute.Relation<
       'api::ecosystem-social.ecosystem-social',
       'manyToOne',
       'api::ecosystem.ecosystem'
     >;
-    twitterUrl: Attribute.String & Attribute.Required;
-    telegramUrl: Attribute.String & Attribute.Required;
-    discordUrl: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1287,7 +1230,6 @@ declare module '@strapi/types' {
       'api::article-entry.article-entry': ApiArticleEntryArticleEntry;
       'api::commentary.commentary': ApiCommentaryCommentary;
       'api::ecosystem.ecosystem': ApiEcosystemEcosystem;
-      'api::ecosystem-activity.ecosystem-activity': ApiEcosystemActivityEcosystemActivity;
       'api::ecosystem-dapp.ecosystem-dapp': ApiEcosystemDappEcosystemDapp;
       'api::ecosystem-social.ecosystem-social': ApiEcosystemSocialEcosystemSocial;
       'api::ecosystem-top-account.ecosystem-top-account': ApiEcosystemTopAccountEcosystemTopAccount;

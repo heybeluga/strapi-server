@@ -995,6 +995,8 @@ export interface ApiEcosystemActivityEcosystemActivity
       'api::ecosystem.ecosystem'
     >;
     type: Attribute.Enumeration<['ecosystem-page', 'starter-pack']>;
+    completed: Attribute.Boolean & Attribute.DefaultTo<false>;
+    url: Attribute.String & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

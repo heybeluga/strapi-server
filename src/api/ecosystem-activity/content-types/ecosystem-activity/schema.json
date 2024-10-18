@@ -49,6 +49,14 @@
         "ecosystem-page",
         "starter-pack"
       ]
+    },
+    "completed": {
+      "type": "boolean",
+      "default": false
+    },
+    "url": {
+      "type": "string",
+      "required": true
     }
   }
 }

@@ -53,5 +53,11 @@
       "repeatable": true,
       "component": "general.bullet"
     }
-  }
+  },
+  "indexes": [
+    {
+      "name": "index_migrated_published_date",
+      "columns": ["migrated_published_date"]
+    }
+  ]
 }

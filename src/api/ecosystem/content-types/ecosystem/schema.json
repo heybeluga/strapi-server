@@ -40,9 +40,6 @@
       "required": true,
       "unique": false
     },
-    "homepageDescription": {
-      "type": "string"
-    },
     "activeToken": {
       "type": "boolean",
       "default": false
@@ -109,6 +106,14 @@
     },
     "marketCapUrl": {
       "type": "string",
+      "required": true
+    },
+    "ecosystemBackground": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
       "required": true
     }
   }

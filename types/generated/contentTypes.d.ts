@@ -921,7 +921,6 @@ export interface ApiEcosystemEcosystem extends Schema.CollectionType {
     ecosystemDescription: Attribute.Text & Attribute.Required;
     ecosystemSlug: Attribute.String & Attribute.Required & Attribute.Unique;
     ecosystemCoinId: Attribute.String & Attribute.Required;
-    homepageDescription: Attribute.String;
     activeToken: Attribute.Boolean & Attribute.DefaultTo<false>;
     featuredEcosystem: Attribute.Boolean & Attribute.DefaultTo<false>;
     ecosystem_dapps: Attribute.Relation<
@@ -953,6 +952,7 @@ export interface ApiEcosystemEcosystem extends Schema.CollectionType {
     telegramUrl: Attribute.String & Attribute.Required;
     discordUrl: Attribute.String & Attribute.Required;
     marketCapUrl: Attribute.String & Attribute.Required;
+    ecosystemBackground: Attribute.Media & Attribute.Required;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1069,15 +1069,15 @@ export interface ApiEcosystemSocialEcosystemSocial
   attributes: {
     name: Attribute.String;
     logo: Attribute.Media & Attribute.Required;
-    websiteUrl: Attribute.String & Attribute.Required;
+    websiteUrl: Attribute.String;
     ecosystem: Attribute.Relation<
       'api::ecosystem-social.ecosystem-social',
       'manyToOne',
       'api::ecosystem.ecosystem'
     >;
-    twitterUrl: Attribute.String & Attribute.Required;
-    telegramUrl: Attribute.String & Attribute.Required;
-    discordUrl: Attribute.String & Attribute.Required;
+    twitterUrl: Attribute.String;
+    telegramUrl: Attribute.String;
+    discordUrl: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -21,11 +21,12 @@ module.exports = createCoreController('api::ecosystem.ecosystem'
                 }
             },
             populate: {
-                ecosystemLogo: true
+                ecosystemLogo: true,
+                ecosystemBackground: true
             }
         })
 
-        
+
         if (ecosystemEntry.length === 0) {
             return ctx.throw(404)
           }

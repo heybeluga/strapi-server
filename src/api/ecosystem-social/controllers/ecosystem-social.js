@@ -7,28 +7,27 @@
 const { createCoreController } = require('@strapi/strapi').factories;
 
 module.exports = createCoreController('api::ecosystem-social.ecosystem-social'
-    , ({strapi})=>({
-        async findByEcosystemSlug(ctx){
-            const {slug} = ctx.params;
-            const ecosystemEntry = await strapi.entityService.findMany('api::ecosystem-social.ecosystem-social',{
-                filters:{
-                    publishedAt: {
-                        // avoid getting non-published ecosystem-dapp
-                        $ne: null
-                    },
-                    ecosystemSlug: {
-                        $eq:slug
-                    }
-                },
-                populate: {
-                    logo: true
-                }
-            })
+  , ({strapi})=>({
+    async find(ctx){
+      const { ecosystemId } = ctx.query;
 
-
-            if (ecosystemEntry.length === 0) {
-                return ctx.throw(404)
-              }
-            return this.transformResponse(ecosystemEntry)
+      const socialAccounts = await strapi.entityService.findMany('api::ecosystem-social.ecosystem-social',{
+        filters:{
+          publishedAt: {
+            // avoid getting non-published ecosystem-dapp
+            $ne: null
+          },
+          ecosystem: ecosystemId
+        },
+        populate: {
+          logo: true
         }
+      })
+
+
+      if (socialAccounts.length === 0) {
+        return ctx.throw(404)
+      }
+      return this.transformResponse(socialAccounts)
+    }
     }));

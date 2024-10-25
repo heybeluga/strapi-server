@@ -6,29 +6,24 @@
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::ecosystem-activity.ecosystem-activity', ({strapi})=>({
-  async findByEcosystemSlug(ctx){
-    const {slug} = ctx.params;
-    const ecosystemEntry = await strapi.entityService.findMany('api::ecosystem-activity.ecosystem-activity',{
-      filters:{
+module.exports = createCoreController('api::ecosystem-activity.ecosystem-activity', ({ strapi }) => ({
+  async find(ctx) {
+    const { ecosystemId } = ctx.query;
+
+    const ecosystemActivities = await strapi.entityService.findMany('api::ecosystem-activity.ecosystem-activity', {
+      filters: {
         publishedAt: {
           // avoid getting non-published ecosystem-dapp
           $ne: null
         },
-        ecosystemSlug: {
-          $eq:slug
-        }
+        ecosystem: ecosystemId
       },
-      populate: {
-        logo: true,
-        bullets: true
-      }
-    })
-
-
-    if (ecosystemEntry.length === 0) {
+      populate: ['logo', 'bullets']
+    });
+    if (ecosystemActivities.length === 0) {
       return ctx.throw(404)
     }
-    return this.transformResponse(ecosystemEntry)
-  }
+
+    return this.transformResponse(ecosystemActivities);
+  },
 }));

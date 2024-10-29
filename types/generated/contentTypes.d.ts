@@ -1190,14 +1190,6 @@ export interface ApiSilverTokenSilverToken extends Schema.CollectionType {
     description: Attribute.Text & Attribute.Required;
     link: Attribute.String;
     socialMediaLinks: Attribute.Component<'link.social-media-link', true>;
-    position: Attribute.Integer &
-      Attribute.SetMinMax<
-        {
-          min: 1;
-          max: 12;
-        },
-        number
-      >;
     buttonText: Attribute.String & Attribute.DefaultTo<'Ecosystem page'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;

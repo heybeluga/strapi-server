@@ -37,11 +37,6 @@
       "repeatable": true,
       "component": "link.social-media-link"
     },
-    "position": {
-      "type": "integer",
-      "max": 12,
-      "min": 1
-    },
     "buttonText": {
       "type": "string",
       "default": "Ecosystem page"

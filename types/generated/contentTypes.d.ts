@@ -1198,6 +1198,7 @@ export interface ApiSilverTokenSilverToken extends Schema.CollectionType {
         },
         number
       >;
+    buttonText: Attribute.String & Attribute.DefaultTo<'Ecosystem page'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

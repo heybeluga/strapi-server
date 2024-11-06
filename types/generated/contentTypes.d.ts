@@ -953,6 +953,11 @@ export interface ApiEcosystemEcosystem extends Schema.CollectionType {
     discordUrl: Attribute.String & Attribute.Required;
     marketCapUrl: Attribute.String & Attribute.Required;
     ecosystemBackground: Attribute.Media & Attribute.Required;
+    thirdPartyContent: Attribute.Relation<
+      'api::ecosystem.ecosystem',
+      'oneToMany',
+      'api::ecosystem-third-party-content.ecosystem-third-party-content'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -994,9 +999,12 @@ export interface ApiEcosystemActivityEcosystemActivity
       'manyToOne',
       'api::ecosystem.ecosystem'
     >;
-    type: Attribute.Enumeration<['ecosystem-page', 'starter-pack']>;
+    type: Attribute.Enumeration<['ecosystem-page', 'starter-pack', 'project']>;
     completed: Attribute.Boolean & Attribute.DefaultTo<false>;
     url: Attribute.String & Attribute.Required;
+    twitterUrl: Attribute.String;
+    telegramUrl: Attribute.String;
+    discordUrl: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1089,6 +1097,40 @@ export interface ApiEcosystemSocialEcosystemSocial
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::ecosystem-social.ecosystem-social',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiEcosystemThirdPartyContentEcosystemThirdPartyContent
+  extends Schema.CollectionType {
+  collectionName: 'ecosystem_third_party_contents';
+  info: {
+    singularName: 'ecosystem-third-party-content';
+    pluralName: 'ecosystem-third-party-contents';
+    displayName: 'EcosystemThirdPartyContent';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media & Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    buttonLink: Attribute.String & Attribute.Required;
+    buttonText: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::ecosystem-third-party-content.ecosystem-third-party-content',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::ecosystem-third-party-content.ecosystem-third-party-content',
       'oneToOne',
       'admin::user'
     > &
@@ -1286,6 +1328,7 @@ declare module '@strapi/types' {
       'api::ecosystem-activity.ecosystem-activity': ApiEcosystemActivityEcosystemActivity;
       'api::ecosystem-dapp.ecosystem-dapp': ApiEcosystemDappEcosystemDapp;
       'api::ecosystem-social.ecosystem-social': ApiEcosystemSocialEcosystemSocial;
+      'api::ecosystem-third-party-content.ecosystem-third-party-content': ApiEcosystemThirdPartyContentEcosystemThirdPartyContent;
       'api::ecosystem-top-account.ecosystem-top-account': ApiEcosystemTopAccountEcosystemTopAccount;
       'api::home-page-entry.home-page-entry': ApiHomePageEntryHomePageEntry;
       'api::silver-token.silver-token': ApiSilverTokenSilverToken;

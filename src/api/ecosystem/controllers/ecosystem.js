@@ -22,7 +22,10 @@ module.exports = createCoreController('api::ecosystem.ecosystem'
             },
             populate: {
                 ecosystemLogo: true,
-                ecosystemBackground: true
+                ecosystemBackground: true,
+                thirdPartyContent: {
+                    populate: ['image']
+                }
             }
         })
 

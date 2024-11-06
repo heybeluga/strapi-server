@@ -109,12 +109,17 @@
       "required": true
     },
     "ecosystemBackground": {
-      "allowedTypes": [
-        "images"
-      ],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "thirdPartyContent": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::ecosystem-third-party-content.ecosystem-third-party-content"
     }
   }
 }

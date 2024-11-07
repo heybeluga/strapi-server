@@ -1,0 +1,35 @@
+{
+  "kind": "collectionType",
+  "collectionName": "ecosystem_third_party_contents",
+  "info": {
+    "singularName": "ecosystem-third-party-content",
+    "pluralName": "ecosystem-third-party-contents",
+    "displayName": "EcosystemThirdPartyContent"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "buttonLink": {
+      "type": "string",
+      "required": true
+    },
+    "buttonText": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

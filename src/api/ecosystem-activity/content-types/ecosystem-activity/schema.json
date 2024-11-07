@@ -47,7 +47,8 @@
       "type": "enumeration",
       "enum": [
         "ecosystem-page",
-        "starter-pack"
+        "starter-pack",
+        "project"
       ]
     },
     "completed": {
@@ -57,6 +58,15 @@
     "url": {
       "type": "string",
       "required": true
+    },
+    "twitterUrl": {
+      "type": "string"
+    },
+    "telegramUrl": {
+      "type": "string"
+    },
+    "discordUrl": {
+      "type": "string"
     }
   }
 }

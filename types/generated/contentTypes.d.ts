@@ -1228,11 +1228,18 @@ export interface ApiSilverTokenSilverToken extends Schema.CollectionType {
   };
   attributes: {
     logo: Attribute.Media & Attribute.Required;
-    title: Attribute.String & Attribute.Required;
+    name: Attribute.String & Attribute.Required;
     description: Attribute.Text & Attribute.Required;
-    link: Attribute.String;
+    buyLink: Attribute.String;
     socialMediaLinks: Attribute.Component<'link.social-media-link', true>;
-    buttonText: Attribute.String & Attribute.DefaultTo<'Ecosystem page'>;
+    tokenLaunchDate: Attribute.Date;
+    rank: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
+    sector: Attribute.Enumeration<
+      ['AI', 'Depin', 'Infrastructure', 'L1', 'Defi']
+    >;
+    ecosystemPage: Attribute.String;
+    funding: Attribute.BigInteger;
+    score: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

@@ -20,7 +20,7 @@
         "images"
       ]
     },
-    "title": {
+    "name": {
       "type": "string",
       "required": true
     },
@@ -28,7 +28,7 @@
       "type": "text",
       "required": true
     },
-    "link": {
+    "buyLink": {
       "type": "string",
       "required": false
     },
@@ -37,9 +37,34 @@
       "repeatable": true,
       "component": "link.social-media-link"
     },
-    "buttonText": {
-      "type": "string",
-      "default": "Ecosystem page"
+    "tokenLaunchDate": {
+      "type": "date"
+    },
+    "rank": {
+      "type": "integer",
+      "required": true,
+      "default": 0
+    },
+    "sector": {
+      "type": "enumeration",
+      "enum": [
+        "AI",
+        "Depin",
+        "Infrastructure",
+        "L1",
+        "Defi"
+      ]
+    },
+    "ecosystemPage": {
+      "type": "string"
+    },
+    "funding": {
+      "type": "biginteger"
+    },
+    "score": {
+      "type": "integer",
+      "required": true,
+      "default": 0
     }
   }
 }

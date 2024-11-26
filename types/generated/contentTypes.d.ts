@@ -1215,6 +1215,36 @@ export interface ApiHomePageEntryHomePageEntry extends Schema.SingleType {
   };
 }
 
+export interface ApiSectorSector extends Schema.CollectionType {
+  collectionName: 'sectors';
+  info: {
+    singularName: 'sector';
+    pluralName: 'sectors';
+    displayName: 'Sector';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    value: Attribute.String & Attribute.Required & Attribute.Unique;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::sector.sector',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::sector.sector',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSilverTokenSilverToken extends Schema.CollectionType {
   collectionName: 'silver_tokens';
   info: {
@@ -1233,12 +1263,14 @@ export interface ApiSilverTokenSilverToken extends Schema.CollectionType {
     buyLink: Attribute.String;
     socialMediaLinks: Attribute.Component<'link.social-media-link', true>;
     tokenLaunchDate: Attribute.Date;
-    sector: Attribute.Enumeration<
-      ['AI', 'Depin', 'Infrastructure', 'L1', 'Defi']
-    >;
     ecosystemPage: Attribute.String;
     funding: Attribute.BigInteger;
     score: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
+    sector: Attribute.Relation<
+      'api::silver-token.silver-token',
+      'oneToOne',
+      'api::sector.sector'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1337,6 +1369,7 @@ declare module '@strapi/types' {
       'api::ecosystem-third-party-content.ecosystem-third-party-content': ApiEcosystemThirdPartyContentEcosystemThirdPartyContent;
       'api::ecosystem-top-account.ecosystem-top-account': ApiEcosystemTopAccountEcosystemTopAccount;
       'api::home-page-entry.home-page-entry': ApiHomePageEntryHomePageEntry;
+      'api::sector.sector': ApiSectorSector;
       'api::silver-token.silver-token': ApiSilverTokenSilverToken;
       'api::tag.tag': ApiTagTag;
       'api::upcoming-token.upcoming-token': ApiUpcomingTokenUpcomingToken;

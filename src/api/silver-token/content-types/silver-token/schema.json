@@ -40,16 +40,6 @@
     "tokenLaunchDate": {
       "type": "date"
     },
-    "sector": {
-      "type": "enumeration",
-      "enum": [
-        "AI",
-        "Depin",
-        "Infrastructure",
-        "L1",
-        "Defi"
-      ]
-    },
     "ecosystemPage": {
       "type": "string"
     },
@@ -60,6 +50,11 @@
       "type": "integer",
       "required": true,
       "default": 0
+    },
+    "sector": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::sector.sector"
     }
   }
 }

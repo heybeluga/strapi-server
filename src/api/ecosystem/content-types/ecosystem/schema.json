@@ -94,15 +94,15 @@
     },
     "twitterUrl": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "telegramUrl": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "discordUrl": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "marketCapUrl": {
       "type": "string",

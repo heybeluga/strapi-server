@@ -948,9 +948,9 @@ export interface ApiEcosystemEcosystem extends Schema.CollectionType {
       'oneToMany',
       'api::ecosystem-activity.ecosystem-activity'
     >;
-    twitterUrl: Attribute.String & Attribute.Required;
-    telegramUrl: Attribute.String & Attribute.Required;
-    discordUrl: Attribute.String & Attribute.Required;
+    twitterUrl: Attribute.String;
+    telegramUrl: Attribute.String;
+    discordUrl: Attribute.String;
     marketCapUrl: Attribute.String & Attribute.Required;
     ecosystemBackground: Attribute.Media & Attribute.Required;
     thirdPartyContent: Attribute.Relation<

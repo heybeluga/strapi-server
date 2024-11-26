@@ -40,11 +40,6 @@
     "tokenLaunchDate": {
       "type": "date"
     },
-    "rank": {
-      "type": "integer",
-      "required": true,
-      "default": 0
-    },
     "sector": {
       "type": "enumeration",
       "enum": [

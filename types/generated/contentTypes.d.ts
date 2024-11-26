@@ -1233,7 +1233,6 @@ export interface ApiSilverTokenSilverToken extends Schema.CollectionType {
     buyLink: Attribute.String;
     socialMediaLinks: Attribute.Component<'link.social-media-link', true>;
     tokenLaunchDate: Attribute.Date;
-    rank: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
     sector: Attribute.Enumeration<
       ['AI', 'Depin', 'Infrastructure', 'L1', 'Defi']
     >;

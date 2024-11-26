@@ -938,11 +938,11 @@ export interface ApiEcosystemEcosystem extends Schema.CollectionType {
       'oneToMany',
       'api::ecosystem-top-account.ecosystem-top-account'
     >;
-    contentDescription: Attribute.Text & Attribute.Required;
-    dappsDescription: Attribute.Text & Attribute.Required;
-    activitiesDescription: Attribute.Text & Attribute.Required;
-    subBrandsDescription: Attribute.Text & Attribute.Required;
-    recDescription: Attribute.Text & Attribute.Required;
+    contentDescription: Attribute.Text;
+    dappsDescription: Attribute.Text;
+    activitiesDescription: Attribute.Text;
+    subBrandsDescription: Attribute.Text;
+    recDescription: Attribute.Text;
     ecosystem_activities: Attribute.Relation<
       'api::ecosystem.ecosystem',
       'oneToMany',

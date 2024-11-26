@@ -68,23 +68,23 @@
     },
     "contentDescription": {
       "type": "text",
-      "required": true
+      "required": false
     },
     "dappsDescription": {
       "type": "text",
-      "required": true
+      "required": false
     },
     "activitiesDescription": {
       "type": "text",
-      "required": true
+      "required": false
     },
     "subBrandsDescription": {
       "type": "text",
-      "required": true
+      "required": false
     },
     "recDescription": {
       "type": "text",
-      "required": true
+      "required": false
     },
     "ecosystem_activities": {
       "type": "relation",

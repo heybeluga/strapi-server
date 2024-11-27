@@ -958,6 +958,11 @@ export interface ApiEcosystemEcosystem extends Schema.CollectionType {
       'oneToMany',
       'api::ecosystem-third-party-content.ecosystem-third-party-content'
     >;
+    featuredArticles: Attribute.Relation<
+      'api::ecosystem.ecosystem',
+      'oneToMany',
+      'api::article-entry.article-entry'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

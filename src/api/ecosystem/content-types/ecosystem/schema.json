@@ -120,6 +120,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::ecosystem-third-party-content.ecosystem-third-party-content"
+    },
+    "featuredArticles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article-entry.article-entry"
     }
   }
 }

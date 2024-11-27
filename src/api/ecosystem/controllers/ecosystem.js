@@ -25,6 +25,13 @@ module.exports = createCoreController('api::ecosystem.ecosystem'
                 ecosystemBackground: true,
                 thirdPartyContent: {
                     populate: ['image']
+                },
+                featuredArticles: {
+                    populate: {
+                        titleImage: {
+                            populate: ['image']
+                        }
+                    }
                 }
             }
         })
@@ -51,6 +58,13 @@ module.exports = createCoreController('api::ecosystem.ecosystem'
                 ecosystemBackground: true,
                 thirdPartyContent: {
                     populate: ['image']
+                },
+                featuredArticles: {
+                    populate: {
+                        titleImage: {
+                            populate: ['image']
+                        }
+                    }
                 }
             }
         })

@@ -30,7 +30,8 @@ module.exports = createCoreController('api::ecosystem.ecosystem'
                     populate: {
                         titleImage: {
                             populate: ['image']
-                        }
+                        },
+                        tags: true
                     }
                 }
             }
@@ -63,7 +64,8 @@ module.exports = createCoreController('api::ecosystem.ecosystem'
                     populate: {
                         titleImage: {
                             populate: ['image']
-                        }
+                        },
+                        tags: true
                     }
                 }
             }

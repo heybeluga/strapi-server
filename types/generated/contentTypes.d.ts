@@ -852,6 +852,14 @@ export interface ApiArticleEntryArticleEntry extends Schema.CollectionType {
       'api::tag.tag'
     >;
     ArticleSummary: Attribute.Component<'general.bullet', true>;
+    content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'Markdown';
+          preset: 'rich';
+        }
+      >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

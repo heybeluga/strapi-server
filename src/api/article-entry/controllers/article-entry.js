@@ -16,17 +16,8 @@ module.exports = createCoreController('api::article-entry.article-entry'
                     $eq:null
                 }
             },
-            populate: {
-                ArticleSummary: {
-                    populate: ['summaryBullets']
-                },
-                articleText: {
-                    populate: ['paragraphText']
-                },
-                titleImage: {
-                    populate: ['imageHeader', 'image']
-                }
-            }
+            // @ts-ignore
+            populate: 'deep'
         })
 
         
@@ -56,17 +47,8 @@ module.exports = createCoreController('api::article-entry.article-entry'
                     $eq:slug
                 }
             },
-            populate: {
-                ArticleSummary: {
-                    populate: ['summaryBullets']
-                },
-                articleText: {
-                    populate: ['paragraphText']
-                },
-                titleImage: {
-                    populate: ['imageHeader', 'image']
-                }
-            }
+            // @ts-ignore
+            populate: 'deep'
         })
 
         

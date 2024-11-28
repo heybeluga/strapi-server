@@ -8,8 +8,13 @@
         name: 'strapi::security',
         config: {
           contentSecurityPolicy: {
+            // useDefaults: true,
             directives: {
               'connect-src': ["'self'", 'https:'],
+              'script-src-elem': [
+                "'self'", // Ensures scripts from the same origin are allowed
+                'https://cdn.ckeditor.com', // Allow CKEditor scripts
+              ],
               'img-src': [
                 "'self'",
                 'data:',
@@ -25,7 +30,7 @@
                 'dl.airtable.com',
                 '*.amazonaws.com',
                 '*.media.strapiapp.com',
-              ]
+              ],
             },
           },
         },

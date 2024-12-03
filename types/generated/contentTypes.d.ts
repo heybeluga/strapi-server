@@ -1284,6 +1284,8 @@ export interface ApiSilverTokenSilverToken extends Schema.CollectionType {
       'oneToOne',
       'api::sector.sector'
     >;
+    dateFormat: Attribute.Enumeration<['Projected date', 'Exact date']> &
+      Attribute.DefaultTo<'Exact date'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

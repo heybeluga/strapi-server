@@ -55,6 +55,14 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::sector.sector"
+    },
+    "dateFormat": {
+      "type": "enumeration",
+      "enum": [
+        "Projected date",
+        "Exact date"
+      ],
+      "default": "Exact date"
     }
   }
 }

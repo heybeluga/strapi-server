@@ -1272,13 +1272,13 @@ export interface ApiSilverTokenSilverToken extends Schema.CollectionType {
   attributes: {
     logo: Attribute.Media & Attribute.Required;
     name: Attribute.String & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
+    description: Attribute.Text;
     buyLink: Attribute.String;
     socialMediaLinks: Attribute.Component<'link.social-media-link', true>;
     tokenLaunchDate: Attribute.Date;
     ecosystemPage: Attribute.String;
     funding: Attribute.BigInteger;
-    score: Attribute.Integer & Attribute.Required & Attribute.DefaultTo<0>;
+    score: Attribute.Integer & Attribute.DefaultTo<0>;
     sector: Attribute.Relation<
       'api::silver-token.silver-token',
       'oneToOne',

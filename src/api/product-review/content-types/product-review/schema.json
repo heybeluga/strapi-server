@@ -1,0 +1,85 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_reviews",
+  "info": {
+    "singularName": "product-review",
+    "pluralName": "product-reviews",
+    "displayName": "ProductReview",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "reviewTitle": {
+      "type": "string"
+    },
+    "reviewImage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "general.image"
+    },
+    "reviewAuthor": {
+      "type": "string"
+    },
+    "reviewSlug": {
+      "type": "string"
+    },
+    "migratedPublishedDate": {
+      "type": "date"
+    },
+    "reviewSummary": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.bullet"
+    },
+    "tags": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tag.tag"
+    },
+    "reviewRating": {
+      "type": "decimal"
+    },
+    "content": {
+      "type": "customField",
+      "options": {
+        "output": "Markdown",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "products": {
+      "type": "component",
+      "repeatable": true,
+      "component": "product-review.product-card"
+    },
+    "pros": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.bullet"
+    },
+    "cons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.bullet"
+    },
+    "overview": {
+      "type": "customField",
+      "options": {
+        "output": "Markdown",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "review": {
+      "type": "customField",
+      "options": {
+        "output": "Markdown",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    }
+  }
+}

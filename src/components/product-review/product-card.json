@@ -1,0 +1,44 @@
+{
+  "collectionName": "components_product_review_product_cards",
+  "info": {
+    "displayName": "ProductCard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "productImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "productName": {
+      "type": "string"
+    },
+    "pros": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.bullet"
+    },
+    "cons": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.bullet"
+    },
+    "review": {
+      "type": "customField",
+      "options": {
+        "output": "Markdown",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
+    },
+    "attributes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.attribute"
+    }
+  }
+}

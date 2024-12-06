@@ -1228,6 +1228,75 @@ export interface ApiHomePageEntryHomePageEntry extends Schema.SingleType {
   };
 }
 
+export interface ApiProductReviewProductReview extends Schema.CollectionType {
+  collectionName: 'product_reviews';
+  info: {
+    singularName: 'product-review';
+    pluralName: 'product-reviews';
+    displayName: 'ProductReview';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    reviewTitle: Attribute.String;
+    reviewImage: Attribute.Component<'general.image'>;
+    reviewAuthor: Attribute.String;
+    reviewSlug: Attribute.String;
+    migratedPublishedDate: Attribute.Date;
+    reviewSummary: Attribute.Component<'general.bullet', true>;
+    tags: Attribute.Relation<
+      'api::product-review.product-review',
+      'oneToMany',
+      'api::tag.tag'
+    >;
+    reviewRating: Attribute.Decimal;
+    content: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'Markdown';
+          preset: 'rich';
+        }
+      >;
+    products: Attribute.Component<'product-review.product-card', true>;
+    pros: Attribute.Component<'general.bullet', true>;
+    cons: Attribute.Component<'general.bullet', true>;
+    overview: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'Markdown';
+          preset: 'rich';
+        }
+      >;
+    review: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'Markdown';
+          preset: 'rich';
+        }
+      >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product-review.product-review',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product-review.product-review',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSectorSector extends Schema.CollectionType {
   collectionName: 'sectors';
   info: {
@@ -1384,6 +1453,7 @@ declare module '@strapi/types' {
       'api::ecosystem-third-party-content.ecosystem-third-party-content': ApiEcosystemThirdPartyContentEcosystemThirdPartyContent;
       'api::ecosystem-top-account.ecosystem-top-account': ApiEcosystemTopAccountEcosystemTopAccount;
       'api::home-page-entry.home-page-entry': ApiHomePageEntryHomePageEntry;
+      'api::product-review.product-review': ApiProductReviewProductReview;
       'api::sector.sector': ApiSectorSector;
       'api::silver-token.silver-token': ApiSilverTokenSilverToken;
       'api::tag.tag': ApiTagTag;

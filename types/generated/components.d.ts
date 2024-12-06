@@ -56,6 +56,17 @@ export interface ArticlesSummaryText extends Schema.Component {
   attributes: {};
 }
 
+export interface GeneralAttribute extends Schema.Component {
+  collectionName: 'components_general_attributes';
+  info: {
+    displayName: 'Attribute';
+  };
+  attributes: {
+    key: Attribute.String & Attribute.Required;
+    value: Attribute.String & Attribute.Required;
+  };
+}
+
 export interface GeneralBullet extends Schema.Component {
   collectionName: 'components_general_bullets';
   info: {
@@ -87,6 +98,29 @@ export interface LinkSocialMediaLink extends Schema.Component {
   attributes: {
     name: Attribute.String;
     link: Attribute.String;
+  };
+}
+
+export interface ProductReviewProductCard extends Schema.Component {
+  collectionName: 'components_product_review_product_cards';
+  info: {
+    displayName: 'ProductCard';
+    description: '';
+  };
+  attributes: {
+    productImage: Attribute.Media;
+    productName: Attribute.String;
+    pros: Attribute.Component<'general.bullet', true>;
+    cons: Attribute.Component<'general.bullet', true>;
+    review: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'Markdown';
+          preset: 'rich';
+        }
+      >;
+    attributes: Attribute.Component<'general.attribute', true>;
   };
 }
 
@@ -122,9 +156,11 @@ declare module '@strapi/types' {
       'articles.paragraph-text': ArticlesParagraphText;
       'articles.paragraph': ArticlesParagraph;
       'articles.summary-text': ArticlesSummaryText;
+      'general.attribute': GeneralAttribute;
       'general.bullet': GeneralBullet;
       'general.image': GeneralImage;
       'link.social-media-link': LinkSocialMediaLink;
+      'product-review.product-card': ProductReviewProductCard;
       'upcoming-token.upcoming-token': UpcomingTokenUpcomingToken;
     }
   }

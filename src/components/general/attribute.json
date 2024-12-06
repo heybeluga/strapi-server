@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_general_attributes",
+  "info": {
+    "displayName": "Attribute"
+  },
+  "options": {},
+  "attributes": {
+    "key": {
+      "type": "string",
+      "required": true
+    },
+    "value": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

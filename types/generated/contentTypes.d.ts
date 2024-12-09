@@ -1279,6 +1279,7 @@ export interface ApiProductReviewProductReview extends Schema.CollectionType {
           preset: 'rich';
         }
       >;
+    reviewDescription: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

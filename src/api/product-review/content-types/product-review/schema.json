@@ -80,6 +80,9 @@
         "preset": "rich"
       },
       "customField": "plugin::ckeditor.CKEditor"
+    },
+    "reviewDescription": {
+      "type": "string"
     }
   }
 }

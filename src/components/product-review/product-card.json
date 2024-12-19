@@ -17,6 +17,18 @@
     "productName": {
       "type": "string"
     },
+    "reviewRating": {
+      "max": 5,
+      "min": 0,
+      "required": false,
+      "unique": false,
+      "type": "decimal"
+    },
+    "attributes": {
+      "type": "component",
+      "repeatable": true,
+      "component": "general.attribute"
+    },
     "pros": {
       "type": "component",
       "repeatable": true,
@@ -35,10 +47,13 @@
       },
       "customField": "plugin::ckeditor.CKEditor"
     },
-    "attributes": {
-      "type": "component",
-      "repeatable": true,
-      "component": "general.attribute"
+    "overview": {
+      "type": "customField",
+      "options": {
+        "output": "Markdown",
+        "preset": "rich"
+      },
+      "customField": "plugin::ckeditor.CKEditor"
     }
   }
 }

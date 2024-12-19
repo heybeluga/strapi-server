@@ -110,6 +110,15 @@ export interface ProductReviewProductCard extends Schema.Component {
   attributes: {
     productImage: Attribute.Media;
     productName: Attribute.String;
+    reviewRating: Attribute.Decimal &
+      Attribute.SetMinMax<
+        {
+          min: 0;
+          max: 5;
+        },
+        number
+      >;
+    attributes: Attribute.Component<'general.attribute', true>;
     pros: Attribute.Component<'general.bullet', true>;
     cons: Attribute.Component<'general.bullet', true>;
     review: Attribute.RichText &
@@ -120,7 +129,14 @@ export interface ProductReviewProductCard extends Schema.Component {
           preset: 'rich';
         }
       >;
-    attributes: Attribute.Component<'general.attribute', true>;
+    overview: Attribute.RichText &
+      Attribute.CustomField<
+        'plugin::ckeditor.CKEditor',
+        {
+          output: 'Markdown';
+          preset: 'rich';
+        }
+      >;
   };
 }
 

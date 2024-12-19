@@ -1251,7 +1251,6 @@ export interface ApiProductReviewProductReview extends Schema.CollectionType {
       'oneToMany',
       'api::tag.tag'
     >;
-    reviewRating: Attribute.Decimal;
     content: Attribute.RichText &
       Attribute.CustomField<
         'plugin::ckeditor.CKEditor',
@@ -1261,25 +1260,6 @@ export interface ApiProductReviewProductReview extends Schema.CollectionType {
         }
       >;
     products: Attribute.Component<'product-review.product-card', true>;
-    pros: Attribute.Component<'general.bullet', true>;
-    cons: Attribute.Component<'general.bullet', true>;
-    overview: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          output: 'Markdown';
-          preset: 'rich';
-        }
-      >;
-    review: Attribute.RichText &
-      Attribute.CustomField<
-        'plugin::ckeditor.CKEditor',
-        {
-          output: 'Markdown';
-          preset: 'rich';
-        }
-      >;
-    reviewDescription: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

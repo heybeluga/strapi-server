@@ -5,7 +5,7 @@ module.exports = {
     const { result, params } = event;
 
     const entry = await strapi.entityService.findMany(
-      "api::article-entry.article-entry",
+      "api::product-review.product-review",
       {
         filters: {
           id: result.id,

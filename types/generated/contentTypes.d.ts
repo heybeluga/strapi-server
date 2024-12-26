@@ -1260,6 +1260,7 @@ export interface ApiProductReviewProductReview extends Schema.CollectionType {
         }
       >;
     products: Attribute.Component<'product-review.product-card', true>;
+    description: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

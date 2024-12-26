@@ -20,6 +20,11 @@ module.exports = {
             method: 'GET',
             "path": "/article-entries/featured",
             "handler": "article-entry.findFeatured",
+        },
+        {   
+            method: 'GET',
+            "path": "/content-entries",
+            "handler": "article-entry.findAllContent",
         }
     ]
 }

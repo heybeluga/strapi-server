@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "learn_page_entries",
+  "info": {
+    "singularName": "learn-page-entry",
+    "pluralName": "learn-page-entries",
+    "displayName": "LearnPageEntry",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "youtubeVideos": {
+      "type": "component",
+      "repeatable": true,
+      "component": "link.social-media-link"
+    }
+  }
+}

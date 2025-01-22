@@ -1228,6 +1228,36 @@ export interface ApiHomePageEntryHomePageEntry extends Schema.SingleType {
   };
 }
 
+export interface ApiLearnPageEntryLearnPageEntry extends Schema.SingleType {
+  collectionName: 'learn_page_entries';
+  info: {
+    singularName: 'learn-page-entry';
+    pluralName: 'learn-page-entries';
+    displayName: 'LearnPageEntry';
+    description: '';
+  };
+  options: {
+    draftAndPublish: false;
+  };
+  attributes: {
+    youtubeVideos: Attribute.Component<'link.social-media-link', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::learn-page-entry.learn-page-entry',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::learn-page-entry.learn-page-entry',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProductReviewProductReview extends Schema.CollectionType {
   collectionName: 'product_reviews';
   info: {
@@ -1435,6 +1465,7 @@ declare module '@strapi/types' {
       'api::ecosystem-third-party-content.ecosystem-third-party-content': ApiEcosystemThirdPartyContentEcosystemThirdPartyContent;
       'api::ecosystem-top-account.ecosystem-top-account': ApiEcosystemTopAccountEcosystemTopAccount;
       'api::home-page-entry.home-page-entry': ApiHomePageEntryHomePageEntry;
+      'api::learn-page-entry.learn-page-entry': ApiLearnPageEntryLearnPageEntry;
       'api::product-review.product-review': ApiProductReviewProductReview;
       'api::sector.sector': ApiSectorSector;
       'api::silver-token.silver-token': ApiSilverTokenSilverToken;

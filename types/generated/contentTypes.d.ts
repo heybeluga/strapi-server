@@ -1367,6 +1367,7 @@ export interface ApiSilverTokenSilverToken extends Schema.CollectionType {
     >;
     dateFormat: Attribute.Enumeration<['Projected date', 'Exact date']> &
       Attribute.DefaultTo<'Exact date'>;
+    imminentDate: Attribute.Boolean & Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

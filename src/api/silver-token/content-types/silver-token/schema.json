@@ -63,6 +63,10 @@
         "Exact date"
       ],
       "default": "Exact date"
+    },
+    "imminentDate": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
